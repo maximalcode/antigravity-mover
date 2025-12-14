@@ -1,0 +1,63 @@
+{
+    "name": "antigravity-mover",
+    "displayName": "Antigravity Mover",
+    "publisher": "maximalcode",
+    "description": "Automatically moves Antigravity AI mockups to the current workspace.",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/example/antigravity-mover"
+    },
+    "icon": "icon.png",
+    "license": "MIT",
+    "version": "1.0.1",
+    "engines": {
+        "vscode": "^1.80.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onStartupFinished"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "configuration": {
+            "title": "Antigravity Mover",
+            "properties": {
+                "antigravityMover.enable": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Enable or disable the auto-moving of files."
+                },
+                "antigravityMover.destinationFolder": {
+                    "type": "string",
+                    "default": ".antigravity-images",
+                    "description": "The folder name in your workspace where images will be moved."
+                }
+            }
+        }
+    },
+    "scripts": {
+        "package": "vsce package",
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile && npm run lint",
+        "lint": "eslint src --ext ts",
+        "test": "node ./out/test/runTest.js"
+    },
+    "devDependencies": {
+        "@types/glob": "^8.1.0",
+        "@types/mocha": "^10.0.1",
+        "@types/node": "20.2.5",
+        "@types/vscode": "^1.80.0",
+        "@typescript-eslint/eslint-plugin": "^5.59.8",
+        "@typescript-eslint/parser": "^5.59.8",
+        "@vscode/test-electron": "^2.3.2",
+        "@vscode/vsce": "^3.7.1",
+        "eslint": "^8.41.0",
+        "glob": "^8.1.0",
+        "mocha": "^10.2.0",
+        "typescript": "^5.1.3"
+    }
+}
